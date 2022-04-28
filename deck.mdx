@@ -1,0 +1,272 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+export const theme = vsDark;
+
+# jQuery 教學
+
+高一多元選修 - 基礎程式設計
+
+![](<https://uploads-ssl.webflow.com/60d29cc33f302e8be91cf0e2/60e8289b4b17b7223e4d1cbd_5e7b0337d6f55f2d81ac9543_Blog%2520post%2520feature%2520img%2520(14).jpeg>)
+
+---
+
+## 學習大綱
+
+- 什麼是 jQuery
+- 為什麼用 jQuery
+- jQuery 基本使用
+
+---
+
+## 什麼是 Jquery ？
+
+- jQuery 是一個 JavaScript 函式庫 (Javascipt Library)
+- jQuery 的精神： 「write less, do more」
+- jQuery 對 [DOM (Document Object Model)](https://developer.mozilla.org/zh-TW/docs/Web/API/Document_Object_Model) 操作有進行優化
+- jQuery 作為老牌 Library，泛用性非常廣。<br />目前全世界約莫 9 成的網站依舊在使用 jQuery ！
+
+  【來源: [W3Techs](https://w3techs.com/technologies/history_overview/javascript_library/ms/y)】
+
+---
+
+【來自 W3Techs 的趨勢圖】
+
+![](https://w3techs.com/diagram/history_overview/javascript_library/ms/y)
+
+---
+
+聽起來很厲害的東西，為什麼我會有點抗拒？ (⊙_⊙)？
+
+[💭 延伸閱讀：技術鄙視從何而來？ from 黑暗執行緒](https://blog.darkthread.net/blog/jquery-dispise/)
+
+---
+
+如果你從事的網頁開發必須做到頂尖否則無法存活，<br />擁抱主流，選擇 Vue.js/Angular/React (簡稱 VAR) <br /> 才能保有競爭力，那麼不斷學習跟砍掉重練是必須的代價；
+
+若你只想擁網頁開發能力，滿足工作或興趣上的一般需求，<br />jQuery 的易學與穩定性，還是很好的選擇。
+
+\- 節錄自文章 [從「鄙視 jQuery」聊起 -技術鄙視從何而來？](https://blog.darkthread.net/blog/jquery-dispise/)
+
+---
+
+在經過深刻反省後 😓，我覺得：
+
+**「所有的程式語言都是一項工具，<br />用的好，用的巧，何必管這麼多？」**
+
+所以我們就來教 jQuery 啦 &nbsp; \\(@^0^@)/
+
+---
+
+### 補充一下： Library
+
+<CodeSurfer>
+
+```md
+Library 你可以想像成是一個程式的工具箱
+```
+
+```md
+Library 你可以想像成是一個程式的工具箱
+工具箱內有許多別人已經幫你做好的東西
+```
+
+```md
+Library 你可以想像成是一個程式的工具箱
+工具箱內有許多別人已經幫你做好的東西
+例如你要鑽螺絲，不用自己製作螺絲起子
+```
+
+```md
+Library 你可以想像成是一個程式的工具箱
+工具箱內有許多別人已經幫你做好的東西
+例如你要鑽螺絲，不用自己製作螺絲起子
+工具箱內直接就有一把螺絲起子可以使用
+```
+
+```md
+Library 你可以想像成是一個程式的工具箱
+工具箱內有許多別人已經幫你做好的東西
+例如你要鑽螺絲，不用自己製作螺絲起子
+工具箱內直接就有一把螺絲起子可以使用
+甚至是電動的螺絲起子！
+```
+
+```md
+Library 你可以想像成是一個程式的工具箱
+工具箱內有許多別人已經幫你做好的東西
+例如你要鑽螺絲，不用自己製作螺絲起子
+工具箱內直接就有一把螺絲起子可以使用
+甚至是電動的螺絲起子！
+這就是 Library 的用處。
+```
+
+</CodeSurfer>
+
+---
+
+使用 Library 可以幫你快速的建構好很多東西。
+
+但是同時也會失去不少東西...
+
+---
+
+## 為什麼用 jQuery？
+
+- 如同前述原因，簡單，易用，易學。
+
+- 如果沒有要寫很大的系統，<br />&emsp;&emsp;&emsp;用 jQuery 來寫網頁速度很快。
+
+---
+
+### 舉個例子 🌰
+
+---
+
+<CodeSurfer>
+
+```js title="這是一段要針對 <h1 id='title'>...</h1> 的程式碼" subtitle="是不是挺囉嗦的？"
+// 抓取 DOM
+const title = document.getElementById("title");
+
+// 設定 #title 的樣式
+title.style = "font-size: 6rem;";
+
+// 設定 #title 裡的文字
+title.innerText = "Javascript 方法好囉嗦！";
+```
+
+```js title="但是我們改成 jQuery 的話呢？" subtitle="簡短好多！"
+// 變數設定 + 樣式設定 + 文字設定
+$("#title")
+  .css("font-size", "6rem")
+  .text("jQuery 的程式碼好短！");
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```js title="Javascipt 版本"
+// 抓取 DOM
+const title = document.getElementById("title");
+```
+
+```js title="jQuery 版本"
+// 抓取 DOM 
+$("#title")
+```
+
+</Step>
+
+<Step>
+
+```js title="Javascipt 版本"
+// 抓取 DOM
+const title = document.getElementById("title");
+
+// 設定 #title 的樣式
+title.style = "font-size: 6rem;";
+```
+
+```js title="jQuery 版本"
+// 抓取 DOM 
+//  + 樣式設定 
+$("#title")
+  .css("font-size", "6rem")
+```
+
+</Step>
+
+<Step>
+
+```js title="Javascipt 版本"
+// 抓取 DOM
+const title = document.getElementById("title");
+
+// 設定 #title 的樣式
+title.style = "font-size: 6rem;";
+
+// 設定 #title 裡的文字
+title.innerText = "Javascript 方法好囉嗦！";
+```
+
+```js title="jQuery 版本"
+// 抓取 DOM 
+//  + 樣式設定 
+//    + 文字設定
+$("#title")
+  .css("font-size", "6rem")
+  .text("jQuery 精簡！");
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+對於各位初學者來說，
+
+有一個簡單的方法來操作網頁，
+
+是更好的事情！
+
+---
+
+當然，雖然我們用的是簡單的方法，
+
+可是 jQuery 一樣可以玩出有深度的內容。
+
+### 畢竟本質還是 Javascipt！
+
+---
+
+## jQuery 的使用
+
+\- 時間就是金錢，朋友！
+
+"$" 是我們在使用 jQuery 時的起手式！
+
+---
+
+<CodeSurfer>
+
+```js title="利用 jQuery 操作 DOM 修改其內部文字" subtitle="呼叫指定的物件"
+$("#object")
+```
+
+```js title="利用 jQuery 操作 DOM 修改其內部文字" subtitle="呼叫物件的方法 (jQuery 設定的)"
+$("#object")
+  .text("Hello World")
+```
+
+</CodeSurfer>
+
+---
+
+上面的例子看起來很薄弱...
+
+但是這就是 jQuery，簡單易用易學的一種 Library
+
+---
+
+## 建議參考學習網站
+
+- [RUNOOB.COM](https://www.runoob.com/jquery/jquery-tutorial.html)
+- [W3School](https://www.w3schools.com/jquery/default.asp)
+- [Fooish 程式技術 - jQuery 篇](https://www.fooish.com/jquery/)
+
+---
+
+# **接下來進入實作**
+
+# **謝謝大家！**
