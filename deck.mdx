@@ -240,6 +240,10 @@ $("#title")
 
 <CodeSurfer>
 
+```js title="利用 jQuery 操作 DOM 修改其內部文字" subtitle="先打上 $ 符號"
+$
+```
+
 ```js title="利用 jQuery 操作 DOM 修改其內部文字" subtitle="呼叫指定的物件"
 $("#object")
 ```
@@ -256,6 +260,66 @@ $("#object")
 上面的例子雖然看起來很薄弱...
 
 但是這就是 jQuery，簡單易用易學的一種 Library
+
+---
+
+## 🤝抓取不同的元件🤝
+
+<CodeSurfer>
+
+```md title="沒有前綴 表示抓取 Elements"
+{Element name}
+```
+
+```js title="沒有前綴 表示抓取 Elements" subtitle="選取名稱為 "input" 的 Element"
+$("input")
+```
+
+```diff 1[4:8] title="沒有前綴 表示抓取 Elements" subtitle="選取名稱為 "input" 的 Element"
+$("input")
+```
+
+```md title="# 表示 id"
+#{Element id}
+```
+
+```js title="# 表示 id" subtitle="選取 id 為 foo 的 Element"
+$("#foo")
+```
+
+```diff 1[4:7] title="# 表示 id" subtitle="選取 id 為 foo 的 Element"
+$("#foo")
+```
+
+```md title=". 表示 class"
+.{Element class}
+```
+
+```js title=". 表示 class" subtitle="選取 class 為 bar 的 Elements"
+$(".bar")
+```
+
+```diff 1[4:7] title=". 表示 class" subtitle="選取 class 為 bar 的 Elements"
+$(".bar")
+```
+
+```md title="[ ] 表示 attribute" subtitle="需搭配 Element name 使用"
+{Element name}[{attributes}]
+```
+
+```js title="[ ] 表示 attribute" subtitle="選取 input Element 內 attribute 含有 type='radio' 的 Element"
+$("input[type='radio']")
+```
+
+```diff 1[4:8] title="[ ] 表示 attribute" subtitle="選取 input Element 內 attribute 含有 type='radio' 的 Element"
+$("input[type='radio']")
+```
+
+```diff 1[9:22] title="[ ] 表示 attribute" subtitle="選取 input Element 內 attribute 含有 type='radio' 的 Element"
+$("input[type='radio']")
+```
+
+</CodeSurfer>
 
 ---
 
